@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+div {
+  padding-bottom: .5rem;
+}
+
+label {
+  display: block;
+  padding-bottom: .2rem;
+}
+
+input:not([type="checkbox"]), select {
+  display: block;
+  width: 100%;
+  line-height: 2;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  margin-top: .5rem;
+  padding-top: 1rem;
+  display: flex;
+  line-height: 2;
+  height: 3rem;
+}
+
+button {
+  flex: 1;
+  border: 1px solid black;
+}
+
+button[type="submit"] {
+  background: teal;
+  border-color: darkgreen;
+  color: white;
+  font-weight: bold;
+}
+
+button[disabled] {
+  opacity: .4;
+}
+
+:invalid:not(form) {
+  outline: 3px solid rgba(255, 0, 0, .2);
+  outline-offset: 2px;
+  outline-style: double;
+}
