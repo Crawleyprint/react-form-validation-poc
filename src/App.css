@@ -48,7 +48,7 @@ button[disabled] {
   opacity: .4;
 }
 
-:invalid:not(form) {
+:invalid:not(form):not(.pristine) {
   outline: 3px solid rgba(255, 0, 0, .2);
   outline-offset: 2px;
   outline-style: double;

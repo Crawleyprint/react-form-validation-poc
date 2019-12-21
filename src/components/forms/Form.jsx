@@ -14,10 +14,11 @@ const Form = ({onSubmit, onReset, reportErrors, children, ...props}) => {
                         const name = element.getAttribute('name');
                         const returnValidity = {}
                         const validity = element.validity;
+                        const validationMessage = element.validationMessage;
                         for (const reason in validity) {
                             returnValidity[reason] = validity[reason];
                         }
-                        return {...all, [name]: returnValidity};
+                        return {...all, [name]: {...returnValidity, validationMessage}};
                     }, {})
             );
         }

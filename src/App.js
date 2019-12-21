@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './components/forms/Form.jsx';
+import Input from './components/forms/Input';
+import Error from './components/forms/Error.jsx';
 
 function App() {
   const [text, updateText] = useState('');
@@ -26,23 +28,39 @@ function App() {
   return (
     <div className="App">
       <Form onSubmit={submitForm} onReset={resetForm} reportErrors={setValidity}>
-        <div>
-          <label htmlFor="text">Text:</label>
-          <input id="text" type="text" name="text" required minLength="2" maxLength="6" value={text} onChange={event => updateText(event.target.value)} />
-          { validity.text && !validity.text.valid && <small>Error here</small>}
-        </div>
-        <div>
-          <label>Number:</label>
-          <input name="number" type="number" min="2" max="6" value={num} onChange={event => updateNum(event.target.value)} />
-          { validity.number && !validity.number.valid && <small>Error here <br/> { JSON.stringify(validity.number) }</small>}
-        </div>
-        <div>
-          <label>Email:</label>
-          <input name="email" required type="email" value={tel} onChange={event => {
+        <Input 
+          label="Text field:"
+          validityState={validity.text} 
+          id="text" 
+          type="text" 
+          name="text" 
+          required 
+          minLength="2" 
+          maxLength="6" 
+          value={text} 
+          onChange={event => updateText(event.target.value)} 
+        />
+        <Input 
+          validityState={validity.number} 
+          label="Number input" 
+          name="number" 
+          type="number" 
+          min="2" 
+          max="6" 
+          value={num} 
+          onChange={event => updateNum(event.target.value)} 
+        />
+        <Input 
+          label="Email input" 
+          name="email" 
+          required 
+          type="email" 
+          value={tel} 
+          validityState={validity.email}
+          onChange={event => {
             updateTel(event.target.value)
-          }} />
-          { validity.email && !validity.email.valid && <small>Error here <br/> {JSON.stringify(validity.email, null, 2)} </small>}
-        </div>
+          }} 
+        />
         <div>
           <label>Select:</label>
           <select name="select" value={choice} required onChange={event => updateChoice(event.target.value)}>
