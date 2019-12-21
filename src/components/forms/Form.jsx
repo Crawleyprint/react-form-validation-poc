@@ -13,6 +13,7 @@ const Form = ({onSubmit, onReset, reportErrors, children, ...props}) => {
                     .reduce((all, element) => {
                         const name = element.getAttribute('name');
                         const returnValidity = {}
+                        element.checkValidity();
                         const validity = element.validity;
                         const validationMessage = element.validationMessage;
                         for (const reason in validity) {

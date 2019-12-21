@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import './App.css';
 import Form from './components/forms/Form.jsx';
 import Input from './components/forms/Input';
-import Error from './components/forms/Error.jsx';
-
+import Select from './components/forms/Select';
 function App() {
   const [text, updateText] = useState('');
   const [num, updateNum] = useState('');
   const [tel, updateTel] = useState('');
-  const [choice, updateChoice] = useState('');
+  const [choice, setChoice] = useState('');
   const [checkboxes, updateCheckboxes] = useState(false);
   const [validity, setValidity] = useState({});
+
+  function updateChoice(val) {
+    console.log(val);
+    setChoice(val);
+  }
 
   function submitForm(event) {
     event.preventDefault();
@@ -61,15 +65,18 @@ function App() {
             updateTel(event.target.value)
           }} 
         />
-        <div>
-          <label>Select:</label>
-          <select name="select" value={choice} required onChange={event => updateChoice(event.target.value)}>
-            <option></option>
-            <option value="1">Choice 1</option>
-            <option value="2">Choice 2</option>
-          </select>
-          { validity.select && !validity.select.valid && <small>Error here</small>}
-        </div>
+        <Select 
+          label="Select" 
+          validityState={validity.select} 
+          name="select" 
+          value={choice} 
+          required 
+          onChange={event => updateChoice(event.target.value)}
+        >
+          <option></option>
+          <option value="1">Choice 1</option>
+          <option value="2">Choice 2</option>
+        </Select>
         <div>
           <label>Checkbox group: </label>
           <ul>
