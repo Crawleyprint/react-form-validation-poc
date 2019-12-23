@@ -1,3 +1,15 @@
+### This is by no means finished product ###
+
+## Explore standards-based form validation in react components
+
+Goals:
+
+- [x] Light 
+- [x] Uses standards 
+- [x] Declarative 
+- [ ] Async validation (in progress)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
