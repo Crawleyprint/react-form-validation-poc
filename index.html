@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="src/App.css">
 </head>
 <body>
-    <form>
+    <form novalidate>
+        <code id="error-dump"></code>
         <div>
             <label for="text">Text input</label>
             <input id="text" type="text" name="text">
         </div>
         <div>
-            <label for="text">Required input</label>
-            <input id="text" type="text" required name="text">
+            <label for="text-required">Required input</label>
+            <input id="text-required" type="text" required name="text-required">
         </div>
         <div>
-            <label for="text">Email input</label>
-            <input id="text" type="email" required name="text">
+            <label for="email">Email input</label>
+            <input id="email" type="email" required name="text">
         </div>
         <div>
             <button type="submit">Submit</button>
